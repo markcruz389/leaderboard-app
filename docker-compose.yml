@@ -5,4 +5,5 @@ services:
         build:
             context: ./server
         ports:
-            - $HOST_PORT:$CONTAINER_PORT
+            - $HOST_PORT:$SERVER_PORT
+        env_file: ./.env

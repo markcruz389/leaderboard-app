@@ -1,4 +1,6 @@
 import { Request, Response } from "express";
+import jwt from "jsonwebtoken";
+
 import { getUser, addUser } from "../../model/user/user.model";
 
 type UserResponse = {
@@ -46,7 +48,15 @@ const httpPostUser = async (req: Request, res: Response) => {
         },
     };
 
-    return res.status(201).json(response);
+    const token = jwt.sign({ name }, process.env.SERVER_JWT_SECRET as string, {
+        algorithm: "HS256",
+        expiresIn: 60 * 60,
+    });
+
+    return res
+        .cookie("token", token, { httpOnly: true })
+        .status(201)
+        .json(response);
 };
 
 export { httpGetUser, httpPostUser };

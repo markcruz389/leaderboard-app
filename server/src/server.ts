@@ -1,13 +1,11 @@
 import http from "node:http";
-import dotenv from "dotenv";
 
 import app from "./app";
 import { initializeFirebase } from "./config/firebase";
 
-dotenv.config();
 initializeFirebase();
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.SERVER_PORT;
 
 const server = http.createServer(app);
 
