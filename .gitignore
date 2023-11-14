@@ -1,4 +1,4 @@
 node_modules/
-service-account.json
+# service-account.json
 firebase-debug.log
 .env
