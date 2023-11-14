@@ -17,4 +17,4 @@ const leaderboardEntries = subcollection<IEntry, ILeaderboard>(
     leaderboards
 );
 
-export { leaderboards, leaderboardEntries, IEntry };
+export { leaderboards, leaderboardEntries, ILeaderboard, IEntry };

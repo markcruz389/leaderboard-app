@@ -7,7 +7,7 @@ import { initializeFirebase } from "./config/firebase";
 dotenv.config();
 initializeFirebase();
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 8080;
 
 const server = http.createServer(app);
 

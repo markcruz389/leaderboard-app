@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import {
     IEntryResult,
+    ILeaderboardResult,
     getLeaderboard,
     addLeaderboard,
     updateLeaderboardEntryScore,
@@ -21,6 +22,10 @@ type UpdateLeaderboardEntryScoreResponse = {
     };
 };
 
+type GetLeaderboardResponse = {
+    board: ILeaderboardResult;
+};
+
 const httpGetLeaderboard = async (req: Request, res: Response) => {
     const leaderboardId = req.params._id.trim();
     if (!leaderboardId) {
@@ -30,12 +35,16 @@ const httpGetLeaderboard = async (req: Request, res: Response) => {
     const params = req.query;
     const per_page = Number(params.per_page);
     const page = Number(params.page);
-
     const data = await getLeaderboard(leaderboardId, per_page, page);
 
-    console.log(params);
+    if (!data) {
+        return res.status(400).json({ error: "Leaderboard not found" });
+    }
 
-    return res.status(200).json(data);
+    const response: GetLeaderboardResponse = {
+        board: data as ILeaderboardResult,
+    };
+    return res.status(200).json(response);
 };
 
 const httpPostLeaderboard = async (req: Request, res: Response) => {
