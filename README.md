@@ -7,7 +7,7 @@ A REST API server for managing leaderboards.
  - Make sure you have docker installed in your machine
 
 ```bash
-$ git clone https://github.com/yourusername/your-repo.git
+$ git clone https://github.com/markcruz389/leaderboard-app.git
 $ cd leaderboard-app
 $ docker-compose up
 ```
