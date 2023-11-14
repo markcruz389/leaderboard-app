@@ -1,6 +1,6 @@
 # Leaderboard-App
 
-A web REST API server for creating leaderboards.
+A REST API server for managing leaderboards.
 
 ## Installation
 
@@ -10,3 +10,4 @@ A web REST API server for creating leaderboards.
 $ git clone https://github.com/yourusername/your-repo.git
 $ cd leaderboard-app
 $ docker-compose up
+```
